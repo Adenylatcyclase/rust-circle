@@ -1,5 +1,3 @@
-use std::rc::Rc;
-use std::cell::RefCell;
 
 struct Circle{
     head: Rc<RefCell<Node>>,
@@ -92,9 +90,11 @@ impl Node{
     pub fn value(&self) -> i32 {
         return self.val;
     }
+fn main() {
 }
 
-fn main() {
+fn advent09(){
+    let mut max: i32 = 0;
     let mut scores: [i32; 413] = [0; 413];
     let mut circle = Circle::new(0);
     for i in 0..71082{
@@ -115,7 +115,7 @@ fn main() {
             circle.insert_after_step(v);
         }
     }
-    let mut max: i32 = 0;
+    
     for i in 0..413 as usize{
         if scores[i] > max{
             max = scores[i];
